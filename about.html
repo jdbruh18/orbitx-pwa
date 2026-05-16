@@ -1,0 +1,128 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050816">
+  <meta name="description" content="About OrbitX, a futuristic responsive PWA space mission operations dashboard built with HTML, CSS, Bootstrap, and vanilla JavaScript.">
+  <title>OrbitX | About</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="images/orbitx-icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="app-body" data-page="about">
+  <div class="starscape" aria-hidden="true"></div>
+
+
+
+
+    <main class="page-content">
+      <section class="page-section">
+        <div class="row g-3 align-items-stretch">
+          <div class="col-xl-7">
+            <article class="glass-card h-100 fade-in">
+              <span class="eyebrow">OrbitX</span>
+              <h2 class="section-heading">A futuristic mission operations dashboard</h2>
+              <p class="text-secondary">OrbitX is a complete responsive Progressive Web Application that simulates future space operations through local interactive dashboards. It takes inspiration from professional mission-control systems, aerospace telemetry software, launch rooms, and orbital asset monitoring tools.</p>
+              <p class="text-secondary mb-0">The application has no backend. Every counter, alert, launch stage, satellite state, lunar resource panel, and telemetry value is generated in the browser with vanilla JavaScript.</p>
+            </article>
+          </div>
+          <div class="col-xl-5">
+            <article class="glass-card h-100 fade-in delay-1">
+              <span class="card-label">Technology Stack <i class="bi bi-braces"></i></span>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge badge-soft">HTML5</span>
+                <span class="badge badge-soft">CSS3</span>
+                <span class="badge badge-soft">Bootstrap 5</span>
+                <span class="badge badge-soft">Vanilla JavaScript</span>
+                <span class="badge badge-soft">PWA Manifest</span>
+                <span class="badge badge-soft">Service Worker</span>
+                <span class="badge badge-soft">localStorage</span>
+              </div>
+              <hr class="border-secondary">
+              <p class="metric-note">Built as a static app so it can run from any basic web host or local server.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section">
+        <div class="accordion" id="aboutAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#pwaPanel" aria-expanded="true" aria-controls="pwaPanel">
+                Progressive Web App support
+              </button>
+            </h2>
+            <div id="pwaPanel" class="accordion-collapse collapse show" data-bs-parent="#aboutAccordion">
+              <div class="accordion-body text-secondary">
+                OrbitX includes a web app manifest, install prompt support, theme color, icon assets, and a service worker that caches local pages, scripts, styles, and images for offline use after the first successful visit.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#futurePanel" aria-expanded="false" aria-controls="futurePanel">
+                Future scope
+              </button>
+            </h2>
+            <div id="futurePanel" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
+              <div class="accordion-body text-secondary">
+                Future versions could add real WebSocket telemetry, authenticated mission roles, 3D orbital visualization, live weather feeds, launch provider integrations, and persistent mission timelines backed by a database.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#designPanel" aria-expanded="false" aria-controls="designPanel">
+                Design direction
+              </button>
+            </h2>
+            <div id="designPanel" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
+              <div class="accordion-body text-secondary">
+                The visual system uses a dark mission-control base, cyan and blue telemetry accents, warning and danger states, glassmorphism surfaces, restrained motion, and dense dashboard layouts intended for repeated operational scanning.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section">
+        <div class="row g-3">
+          <div class="col-md-4">
+            <article class="metric-card h-100">
+              <span class="card-label">Pages <i class="bi bi-window-stack"></i></span>
+              <p class="metric-value"><span class="counter" data-target="7"></span></p>
+              <p class="metric-note">Landing, dashboard, launch, satellites, lunar, telemetry, and about.</p>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="metric-card h-100">
+              <span class="card-label">Components <i class="bi bi-grid-3x3-gap"></i></span>
+              <p class="metric-value"><span class="counter" data-target="11"></span></p>
+              <p class="metric-note">Navbar, cards, grids, progress, alerts, toasts, modals, badges, tables, buttons, accordions.</p>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="metric-card h-100">
+              <span class="card-label">Developer Section <i class="bi bi-person-workspace"></i></span>
+              <p class="metric-value">OX</p>
+              <p class="metric-note">Created as a polished front-end project for responsive aerospace software simulation.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

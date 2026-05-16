@@ -1,0 +1,163 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050816">
+  <meta name="description" content="OrbitX launch center with countdown timer, stage indicators, rocket status, and ignition sequence simulation.">
+  <title>OrbitX | Rocket Launch Center</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="images/orbitx-icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="app-body" data-page="launch">
+  <div class="starscape" aria-hidden="true"></div>
+
+
+
+
+    <main class="page-content">
+      <section class="page-section">
+        <div class="row g-3 align-items-stretch">
+          <div class="col-xl-7">
+            <article class="glass-card launch-clock h-100 fade-in">
+              <span class="eyebrow">Autosequence</span>
+              <p class="countdown-display" id="countdownDisplay">T-05:00</p>
+              <p class="lead text-secondary mb-3" id="launchStageLabel">Ground systems</p>
+              <div class="progress mb-4" role="progressbar" aria-label="Launch progress">
+                <div class="progress-bar" id="launchProgress"></div>
+              </div>
+              <div class="d-flex flex-wrap justify-content-center gap-2">
+                <button class="btn btn-orbit" id="launchStart" type="button"><i class="bi bi-play-fill me-2"></i>Start</button>
+                <button class="btn btn-ghost" id="launchHold" type="button"><i class="bi bi-pause-fill me-2"></i>Hold</button>
+                <button class="btn btn-ghost" id="launchReset" type="button"><i class="bi bi-arrow-counterclockwise me-2"></i>Reset</button>
+                <button class="btn btn-danger-orbit" id="ignitionBtn" type="button"><i class="bi bi-lightning-charge me-2"></i>Arm Ignition</button>
+              </div>
+            </article>
+          </div>
+          <div class="col-xl-5">
+            <article class="glass-card rocket-visual h-100" id="rocketVisual" aria-label="Animated rocket status">
+              <div class="rocket-body"><span class="rocket-window"></span></div>
+              <div class="rocket-flame"></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section">
+        <div class="stage-track">
+          <div class="stage-step active"><strong>Ground</strong><br><small>Pad secure</small></div>
+          <div class="stage-step"><strong>Load</strong><br><small>LOX / CH4</small></div>
+          <div class="stage-step"><strong>Guidance</strong><br><small>IMU align</small></div>
+          <div class="stage-step"><strong>Terminal</strong><br><small>Flight computer</small></div>
+          <div class="stage-step"><strong>Ignition</strong><br><small>Engine start</small></div>
+        </div>
+      </section>
+
+      <section class="page-section">
+        <div class="row g-3">
+          <div class="col-md-4">
+            <article class="metric-card">
+              <span class="card-label">Engine Chill <i class="bi bi-snow"></i></span>
+              <p class="metric-value" id="engineChillValue">--</p>
+              <div class="progress" role="progressbar" aria-label="Engine chill"><div class="progress-bar" id="engineChillBar"></div></div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="metric-card">
+              <span class="card-label">Tank Pressure <i class="bi bi-speedometer2"></i></span>
+              <p class="metric-value" id="tankPressureValue">--</p>
+              <div class="progress" role="progressbar" aria-label="Tank pressure"><div class="progress-bar bg-warning" id="tankPressureBar"></div></div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="metric-card">
+              <span class="card-label">Weather Go <i class="bi bi-cloud-sun"></i></span>
+              <p class="metric-value" id="weatherValue">--</p>
+              <div class="progress" role="progressbar" aria-label="Weather go"><div class="progress-bar bg-success" id="weatherBar"></div></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section">
+        <div class="row g-3">
+          <div class="col-lg-7">
+            <article class="glass-card h-100">
+              <div class="d-flex align-items-center justify-content-between gap-2 flex-wrap mb-3">
+                <div>
+                  <span class="eyebrow">Ignition Sequence</span>
+                  <h2 class="section-heading mb-0">Launch readiness gates</h2>
+                </div>
+                <button class="btn btn-ghost" type="button" data-bs-toggle="modal" data-bs-target="#abortModal"><i class="bi bi-shield-exclamation me-2"></i>Abort Criteria</button>
+              </div>
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <div class="habitat-node"><span class="node-light"></span><span>Flight computer authority locked</span></div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="habitat-node"><span class="node-light"></span><span>Range safety channel verified</span></div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="habitat-node"><span class="node-light warning"></span><span>Upper-level winds trending</span></div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="habitat-node"><span class="node-light"></span><span>Ground umbilical auto retract ready</span></div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-lg-5">
+            <article class="glass-card h-100">
+              <span class="card-label">Flight Director Poll <i class="bi bi-check2-square"></i></span>
+              <div class="orbit-table-wrap table-responsive">
+                <table class="table orbit-table align-middle">
+                  <tbody>
+                    <tr><td>Propulsion</td><td><span class="badge badge-success-soft">Go</span></td></tr>
+                    <tr><td>Avionics</td><td><span class="badge badge-success-soft">Go</span></td></tr>
+                    <tr><td>Weather</td><td><span class="badge badge-warning-soft">Monitor</span></td></tr>
+                    <tr><td>Recovery</td><td><span class="badge badge-success-soft">Go</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+
+  <div class="modal fade" id="abortModal" tabindex="-1" aria-labelledby="abortModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5" id="abortModalLabel">Abort Criteria</h2>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="mb-0">
+            <li>Engine controller mismatch above 2.4 percent.</li>
+            <li>Tank pressure outside committed launch corridor.</li>
+            <li>Range safety link drop beyond three seconds.</li>
+            <li>Upper-level wind shear breach during terminal count.</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-ghost" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/launch.js"></script>
+</body>
+</html>

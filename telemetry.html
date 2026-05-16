@@ -1,0 +1,116 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050816">
+  <meta name="description" content="OrbitX telemetry center with dynamic velocity, altitude, latency, fuel, and communication metrics.">
+  <title>OrbitX | Telemetry Center</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="images/orbitx-icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="app-body" data-page="telemetry">
+  <div class="starscape" aria-hidden="true"></div>
+
+
+
+
+    <main class="page-content">
+      <section class="page-section">
+        <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-3">
+          <div>
+            <span class="eyebrow">Packet Stream</span>
+            <h2 class="section-heading mb-0">Spacecraft telemetry</h2>
+          </div>
+          <span class="signal-pill"><i class="bi bi-activity"></i> Updating every 2.4 seconds</span>
+        </div>
+        <div class="telemetry-grid">
+          <article class="metric-card metric-stream fade-in">
+            <span class="card-label">Velocity <i class="bi bi-speedometer"></i></span>
+            <p class="metric-value fs-2" id="velocityValue">--</p>
+            <div class="sparkline"></div>
+          </article>
+          <article class="metric-card metric-stream fade-in delay-1">
+            <span class="card-label">Altitude <i class="bi bi-arrow-up-right"></i></span>
+            <p class="metric-value fs-2" id="altitudeValue">--</p>
+            <div class="sparkline"></div>
+          </article>
+          <article class="metric-card metric-stream fade-in delay-2">
+            <span class="card-label">Comms Latency <i class="bi bi-router"></i></span>
+            <p class="metric-value fs-2" id="latencyValue">--</p>
+            <div class="progress"><div class="progress-bar" id="latencyBar"></div></div>
+          </article>
+          <article class="metric-card metric-stream fade-in delay-3">
+            <span class="card-label">Fuel Flow <i class="bi bi-droplet-half"></i></span>
+            <p class="metric-value fs-2" id="fuelFlowValue">--</p>
+            <div class="progress"><div class="progress-bar bg-warning" id="fuelFlowBar"></div></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="page-section">
+        <div class="row g-3">
+          <div class="col-lg-4">
+            <article class="metric-card h-100">
+              <span class="card-label">Remaining Fuel <i class="bi bi-fuel-pump"></i></span>
+              <p class="metric-value" id="remainingFuelValue">--</p>
+              <p class="metric-note">Integrated from simulated consumption over mission time.</p>
+            </article>
+          </div>
+          <div class="col-lg-4">
+            <article class="metric-card h-100">
+              <span class="card-label">Thermal Load <i class="bi bi-thermometer-sun"></i></span>
+              <p class="metric-value" id="thermalLoadValue">--</p>
+              <div class="progress"><div class="progress-bar bg-danger" id="thermalLoadBar"></div></div>
+            </article>
+          </div>
+          <div class="col-lg-4">
+            <article class="metric-card h-100">
+              <span class="card-label">Packets Received <i class="bi bi-hdd-network"></i></span>
+              <p class="metric-value"><span class="counter" data-target="18420"></span></p>
+              <p class="metric-note">Counter animates locally on viewport entry.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section">
+        <article class="glass-card">
+          <div class="d-flex align-items-center justify-content-between gap-2 flex-wrap mb-3">
+            <div>
+              <span class="eyebrow">Data Console</span>
+              <h2 class="section-heading mb-0">Live packet log</h2>
+            </div>
+            <span class="badge badge-soft">Auto-scroll feed</span>
+          </div>
+          <div class="orbit-table-wrap table-responsive">
+            <table class="table orbit-table align-middle">
+              <thead>
+                <tr>
+                  <th>UTC</th>
+                  <th>Channel</th>
+                  <th>Packet</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="telemetryLogBody"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/telemetry.js"></script>
+</body>
+</html>

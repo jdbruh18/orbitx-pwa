@@ -1,0 +1,133 @@
+@media (max-width: 1199.98px) {
+  .telemetry-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991.98px) {
+  :root {
+    --topbar-height: auto;
+  }
+
+  .app-main {
+    margin-left: 0;
+  }
+
+  .topbar {
+    gap: 0.8rem;
+    align-items: flex-start;
+  }
+
+  .topbar-title {
+    min-width: 0;
+  }
+
+  .topbar-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .landing-hero {
+    min-height: auto;
+  }
+
+  .landing-hero::before {
+    background:
+      linear-gradient(180deg, rgba(5, 8, 22, 0.95) 0%, rgba(5, 8, 22, 0.76) 58%, rgba(5, 8, 22, 0.9) 100%),
+      url("../images/orbitx-hero.png") center / cover no-repeat;
+  }
+
+  body.theme-light .landing-hero::before {
+    background:
+      linear-gradient(180deg, rgba(238, 244, 255, 0.95) 0%, rgba(238, 244, 255, 0.72) 58%, rgba(238, 244, 255, 0.9) 100%),
+      url("../images/orbitx-hero.png") center / cover no-repeat;
+  }
+
+  .stage-track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .page-content {
+    padding: 1rem;
+  }
+
+  .topbar {
+    padding: 0.85rem 1rem;
+  }
+
+  .clock-pill,
+  .status-pill,
+  .signal-pill {
+    min-height: 34px;
+    font-size: 0.78rem;
+  }
+
+  .hero-copy {
+    padding: 3rem 0;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .telemetry-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-card {
+    min-height: auto;
+  }
+
+  .stage-track {
+    grid-template-columns: 1fr;
+  }
+
+  .rocket-visual {
+    min-height: 300px;
+  }
+
+  .rocket-body {
+    height: 196px;
+  }
+
+  .countdown-display {
+    font-size: clamp(2.6rem, 16vw, 4.8rem);
+  }
+
+  .orbit-table td,
+  .orbit-table th {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar-title h1,
+  .topbar-title .page-title {
+    font-size: 1rem;
+  }
+
+  .brand strong {
+    font-size: 1.05rem;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.6rem, 22vw, 4.2rem);
+  }
+
+  .metric-value {
+    font-size: 1.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}

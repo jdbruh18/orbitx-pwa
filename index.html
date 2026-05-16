@@ -1,0 +1,119 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050816">
+  <meta name="description" content="OrbitX is a futuristic responsive PWA for space mission operations, launch control, satellites, lunar resources, and telemetry.">
+  <title>OrbitX | Mission Operations</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="images/orbitx-icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="app-body" data-page="index">
+  <div class="starscape" aria-hidden="true"></div>
+
+
+
+
+    <main>
+      <section class="landing-hero page-content">
+        <div class="container-fluid">
+          <div class="hero-copy fade-in">
+            <span class="eyebrow">Future Space Operations PWA</span>
+            <h1>OrbitX</h1>
+            <p>Mission-control software for launch readiness, orbital assets, lunar surface operations, and live spacecraft telemetry in one responsive offline-ready interface.</p>
+            <div class="hero-actions">
+              <a class="btn btn-orbit" href="dashboard.html"><i class="bi bi-grid-1x2 me-2"></i>Open Dashboard</a>
+              <a class="btn btn-ghost" href="launch.html"><i class="bi bi-rocket-takeoff me-2"></i>Launch Center</a>
+            </div>
+          </div>
+          <div class="row g-3 mission-stat-grid">
+            <div class="col-6 col-xl-3">
+              <article class="glass-card stat-card fade-in delay-1">
+                <span class="card-label">Active Missions <i class="bi bi-diagram-3"></i></span>
+                <p class="metric-value counter" data-target="18">0</p>
+                <p class="metric-note">Orbital and lunar operations</p>
+              </article>
+            </div>
+            <div class="col-6 col-xl-3">
+              <article class="glass-card stat-card fade-in delay-2">
+                <span class="card-label">Satellites <i class="bi bi-broadcast"></i></span>
+                <p class="metric-value counter" data-target="42">0</p>
+                <p class="metric-note">Tracked assets in network</p>
+              </article>
+            </div>
+            <div class="col-6 col-xl-3">
+              <article class="glass-card stat-card fade-in delay-3">
+                <span class="card-label">Uptime <i class="bi bi-shield-check"></i></span>
+                <p class="metric-value"><span class="counter" data-target="99.98" data-decimals="2"></span><small>%</small></p>
+                <p class="metric-note">PWA command shell</p>
+              </article>
+            </div>
+            <div class="col-6 col-xl-3">
+              <article class="glass-card stat-card fade-in delay-3">
+                <span class="card-label">Latency <i class="bi bi-speedometer2"></i></span>
+                <p class="metric-value"><span class="counter" data-target="38"></span><small>ms</small></p>
+                <p class="metric-note">Simulated comms average</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-content page-section">
+        <div class="container-fluid">
+          <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-3">
+            <div>
+              <span class="eyebrow">Core Systems</span>
+              <h2 class="section-heading mb-0">Mission-grade interfaces</h2>
+            </div>
+            <span class="signal-pill"><i class="bi bi-wifi"></i> Offline capable after first load</span>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-6 col-xl-3">
+              <article class="feature-tile fade-in">
+                <span class="feature-icon"><i class="bi bi-speedometer"></i></span>
+                <h3 class="h5">Live Telemetry</h3>
+                <p class="text-secondary mb-0">Velocity, altitude, latency, fuel, and thermal metrics update locally in real time.</p>
+              </article>
+            </div>
+            <div class="col-md-6 col-xl-3">
+              <article class="feature-tile fade-in delay-1">
+                <span class="feature-icon"><i class="bi bi-rocket"></i></span>
+                <h3 class="h5">Launch Control</h3>
+                <p class="text-secondary mb-0">Countdown, ignition state, stage gates, and launch readiness cards simulate a flight room workflow.</p>
+              </article>
+            </div>
+            <div class="col-md-6 col-xl-3">
+              <article class="feature-tile fade-in delay-2">
+                <span class="feature-icon"><i class="bi bi-broadcast-pin"></i></span>
+                <h3 class="h5">Satellite Network</h3>
+                <p class="text-secondary mb-0">Signal strength, battery, orbit badges, and online states adapt across every screen size.</p>
+              </article>
+            </div>
+            <div class="col-md-6 col-xl-3">
+              <article class="feature-tile fade-in delay-3">
+                <span class="feature-icon"><i class="bi bi-phone"></i></span>
+                <h3 class="h5">Installable PWA</h3>
+                <p class="text-secondary mb-0">Manifest, service worker, local caching, and responsive navigation make OrbitX app-like.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

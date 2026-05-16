@@ -1,0 +1,171 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050816">
+  <meta name="description" content="OrbitX mission dashboard with crew statistics, fuel, orbit stability, alerts, and mission tables.">
+  <title>OrbitX | Mission Dashboard</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="images/orbitx-icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="app-body" data-page="dashboard">
+  <div class="starscape" aria-hidden="true"></div>
+
+
+
+
+    <main class="page-content">
+      <section class="page-section">
+        <div class="alert alert-warning bg-transparent border-warning text-warning pulse-alert d-flex align-items-center gap-2" role="alert">
+          <i class="bi bi-exclamation-triangle"></i>
+          <div>Radiation forecast elevated near the polar corridor. Crew EVA windows remain constrained.</div>
+        </div>
+        <div class="row g-3">
+          <div class="col-md-6 col-xl-3">
+            <article class="metric-card fade-in">
+              <span class="card-label">Fuel Status <i class="bi bi-fuel-pump"></i></span>
+              <p class="metric-value" id="fuelStatusValue">--</p>
+              <div class="progress" role="progressbar" aria-label="Fuel status"><div class="progress-bar" id="fuelStatusBar"></div></div>
+              <p class="metric-note">Main tank reserve</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <article class="metric-card fade-in delay-1">
+              <span class="card-label">Orbit Stability <i class="bi bi-bullseye"></i></span>
+              <p class="metric-value" id="orbitStabilityValue">--</p>
+              <div class="progress" role="progressbar" aria-label="Orbit stability"><div class="progress-bar bg-success" id="orbitStabilityBar"></div></div>
+              <p class="metric-note">Attitude and trajectory</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <article class="metric-card fade-in delay-2">
+              <span class="card-label">Crew Readiness <i class="bi bi-people"></i></span>
+              <p class="metric-value" id="crewReadinessValue">--</p>
+              <div class="progress" role="progressbar" aria-label="Crew readiness"><div class="progress-bar bg-success" id="crewReadinessBar"></div></div>
+              <p class="metric-note">Medical and task load</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <article class="metric-card fade-in delay-3">
+              <span class="card-label">Power Reserve <i class="bi bi-lightning-charge"></i></span>
+              <p class="metric-value" id="powerReserveValue">--</p>
+              <div class="progress" role="progressbar" aria-label="Power reserve"><div class="progress-bar bg-warning" id="powerReserveBar"></div></div>
+              <p class="metric-note">Solar plus battery bus</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section">
+        <div class="row g-3">
+          <div class="col-xl-8">
+            <article class="glass-card h-100">
+              <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap mb-3">
+                <div>
+                  <span class="eyebrow">Mission Overview</span>
+                  <h2 class="section-heading mb-0">Active flight operations</h2>
+                </div>
+                <span class="badge badge-soft">4 primary missions</span>
+              </div>
+              <div class="orbit-table-wrap table-responsive">
+                <table class="table orbit-table align-middle">
+                  <thead>
+                    <tr>
+                      <th>Mission</th>
+                      <th>Vehicle</th>
+                      <th>Phase</th>
+                      <th>Risk</th>
+                      <th>Next Event</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Artemis Relay</td>
+                      <td>Gateway Node</td>
+                      <td><span class="badge badge-success-soft">Nominal</span></td>
+                      <td>Low</td>
+                      <td>Comms handoff</td>
+                    </tr>
+                    <tr>
+                      <td>Odyssey Cargo</td>
+                      <td>OX-7 Freighter</td>
+                      <td><span class="badge badge-warning-soft">Correction Burn</span></td>
+                      <td>Medium</td>
+                      <td>RCS trim</td>
+                    </tr>
+                    <tr>
+                      <td>Luna Hab Alpha</td>
+                      <td>Surface Base</td>
+                      <td><span class="badge badge-success-soft">Operational</span></td>
+                      <td>Low</td>
+                      <td>Solar tracking</td>
+                    </tr>
+                    <tr>
+                      <td>Aurora Mapper</td>
+                      <td>Polar Sat</td>
+                      <td><span class="badge badge-danger-soft">Degraded</span></td>
+                      <td>High</td>
+                      <td>Antenna reset</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+          </div>
+          <div class="col-xl-4">
+            <aside class="alert-panel h-100">
+              <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
+                <div>
+                  <span class="eyebrow">Dynamic Alerts</span>
+                  <h2 class="h5 mb-0">Control loop</h2>
+                </div>
+                <span class="badge badge-warning-soft">Live</span>
+              </div>
+              <div class="alert-feed" id="dashboardAlertFeed"></div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section">
+        <div class="row g-3">
+          <div class="col-md-4">
+            <article class="glass-card">
+              <span class="card-label">Crew Manifest <i class="bi bi-person-badge"></i></span>
+              <p class="metric-value"><span class="counter" data-target="6"></span><small> active</small></p>
+              <p class="metric-note">Flight deck, science, medical, robotics, navigation, commander.</p>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="glass-card">
+              <span class="card-label">Docking Ports <i class="bi bi-link-45deg"></i></span>
+              <p class="metric-value"><span class="counter" data-target="3"></span><small> free</small></p>
+              <p class="metric-note">Two crew-rated adapters and one cargo berth available.</p>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="glass-card">
+              <span class="card-label">Flight Rules <i class="bi bi-clipboard-check"></i></span>
+              <p class="metric-value"><span class="counter" data-target="128"></span></p>
+              <p class="metric-note">Automated constraints monitored in the active mission set.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

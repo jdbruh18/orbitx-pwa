@@ -1,0 +1,46 @@
+{
+  "name": "OrbitX Mission Operations",
+  "short_name": "OrbitX",
+  "description": "A futuristic responsive Progressive Web App for space mission operations dashboards.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#050816",
+  "theme_color": "#050816",
+  "categories": ["productivity", "utilities", "education"],
+  "icons": [
+    {
+      "src": "images/orbitx-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/orbitx-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Mission Dashboard",
+      "short_name": "Dashboard",
+      "url": "dashboard.html",
+      "icons": [{ "src": "images/orbitx-icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Launch Center",
+      "short_name": "Launch",
+      "url": "launch.html",
+      "icons": [{ "src": "images/orbitx-icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Telemetry Center",
+      "short_name": "Telemetry",
+      "url": "telemetry.html",
+      "icons": [{ "src": "images/orbitx-icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
